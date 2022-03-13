@@ -81,7 +81,7 @@ s * lcs(char * a, int a_len, char * b, int b_len)
 {
     s * ret = malloc(sizeof(s));
     int ** c = malloc((a_len + 1) * sizeof(int *));
-    char *** d = malloc((a_len + 1) * sizeof(int **));
+    char *** d = malloc((a_len + 1) * sizeof(char **));
     for(int i = 0; i < a_len + 1; i++)
     {
         c[i] = malloc((b_len + 1) * sizeof(int));
