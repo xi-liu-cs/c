@@ -19,7 +19,7 @@ void print_num(char * p, int n)
 int main()
 {
   int cur_size = size;
-  char * s = (char *)malloc(size * sizeof(char));
+  char * s = malloc(size * sizeof(char));
   printf("enter ");
   int i = 0;
   char c;
@@ -29,7 +29,7 @@ int main()
     if(i >= cur_size)
     {
       cur_size += size;
-      s = (char *)realloc(s, cur_size);
+      s = realloc(s, cur_size);
     }
     s[i] = c;
     scanf("%c", &c);
