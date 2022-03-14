@@ -18,12 +18,8 @@ void print_num(char * p, int n, char separate)
 
 int main()
 {
-  char separate;
   printf("separate by char? (y/n)\n");
-  separate = getchar();
-  
-  char newline;
-  newline = getchar();
+  char separate = getchar(), newline = getchar();
   
   int cur_size = size;
   char * s = malloc(size * sizeof(char));
