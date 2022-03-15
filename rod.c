@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 typedef struct s
 {
@@ -10,7 +11,7 @@ typedef struct s
 s * bot_up_cut_rod(int * p, int n)
 {
     size_t sz = (n + 1) * sizeof(int);
-    int * memo = malloc(sz), * cut = malloc(sz);
+    int * memo = sbrk(sz), * cut = sbrk(sz);
     *memo = 0;
     for(int i = 1; i <= n; i++)
     {
@@ -24,7 +25,7 @@ s * bot_up_cut_rod(int * p, int n)
             }
         }
     }
-    s * ret = malloc(sizeof(s));
+    s * ret = sbrk(sizeof(s));
     ret->memo = memo;
     ret->cut = cut;
     return ret;
@@ -61,7 +62,7 @@ int main()
     int price[] = {1 << 31, 1, 5, 8, 9, 10, 17, 17, 20, 24, 30};
     int n = sizeof(price) / sizeof(*price);
     
-    for(int i = 0; i < n; i++)
+    for(int i = 1; i < n; i++)
     {
         printf("len = %d:  ", i);
         print_cut(price, i);
