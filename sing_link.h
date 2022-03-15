@@ -12,7 +12,7 @@ typedef struct node
 
 node * node_init(int val)
 {
-    node * n = (node *)malloc(sizeof(node));
+    node * n = malloc(sizeof(node));
     n->val = val;
     n->next = NULL;
     return n;
