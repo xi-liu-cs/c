@@ -1,3 +1,6 @@
+class Solution 
+{
+    public:
     typedef struct ListNode node;
 
     node * getIntersectionNode(node * head_a, ListNode * head_b)
@@ -17,3 +20,4 @@
         }
         return 0;
     }
+};
