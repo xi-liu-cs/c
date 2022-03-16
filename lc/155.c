@@ -93,7 +93,12 @@ int main()
     printf("p3 = %d\n", p3);
     
     int p4 = minStackGetMin(obj);
-    printf("p4 = %d\n", p4);
+    printf("p4 = %d\n\n", p4);
+    
+    minStackPop(obj);
+    
+    int p5 = minStackGetMin(obj);
+    printf("p5 = %d\n", p5);
 
     minStackFree(obj);
 }
