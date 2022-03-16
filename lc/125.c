@@ -10,8 +10,7 @@ bool isPalindrome(char * s)
         s_i++;
     }
     a[a_i] = '\0';
-    int a_len = strlen(a);
-    int i = 0, j = a_len - 1;
+    int i = 0, j = a_i - 1;
     while(i < j)
         if(a[i++] != a[j--])
             return false;
