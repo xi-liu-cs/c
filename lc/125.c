@@ -6,9 +6,7 @@ bool isPalindrome(char * s)
     while(s_i < s_len)
     {
         if(s[s_i] != ' ' && !ispunct(s[s_i]))
-        {
             a[a_i++] = tolower(s[s_i]);
-        }
         s_i++;
     }
     a[a_i] = '\0';
