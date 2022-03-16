@@ -12,8 +12,3 @@ node * getIntersectionNode(node * head_a, node * head_b)
     }
     return a;
 }
-
-class {
-    public:
-    int a = c;
-}
