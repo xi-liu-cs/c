@@ -20,6 +20,5 @@ int * preorderTraversal(node * root, int * return_size)
     int cur_size = 10;
     int * ret = malloc(cur_size * sizeof(int));
     *return_size = 0;
-    int ** ret2 = preorder(root, &ret, return_size, &cur_size);
-    return *ret2;
+    return *preorder(root, &ret, return_size, &cur_size);
 }
