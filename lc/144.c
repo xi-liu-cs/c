@@ -1,16 +1,3 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     struct TreeNode *left;
- *     struct TreeNode *right;
- * };
- */
-
-
-/**
- * Note: The returned array must be malloced, assume caller calls free().
- */
 typedef struct TreeNode node;
 
 void preorder(node * root, int * ret, int * return_size, int * cur_size)
