@@ -130,9 +130,5 @@ int main()
     char * s = "liuywyxi";
     printf("longest_palin_substring = %d\n", longest_palin_substring(s));
     printf("longest_palin_subseq = %d\n", longest_palin_subseq(s));
-    
-    char * a = "liuywyxi";
-    char * b = "liuxics";
-    printf("%d\n", longest_palin_subseq2(a));
-    printf("%d\n", longest_common_subseq(a, b));
+    printf("longest_palin_subseq2 = %d\n", longest_palin_subseq2(s));
 }
