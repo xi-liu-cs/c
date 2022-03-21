@@ -86,9 +86,53 @@ int longest_palin_subseq(char * a)
     return memo[0][n - 1];
 }
 
+int longest_common_subseq(char * a, char * b)
+{
+    int a_len = strlen(a), b_len = strlen(b);
+    int c[a_len + 1][b_len + 1];
+    for(int i = 0; i <= a_len; i++)
+    {
+        for(int j = 0; j <= b_len; j++)
+        {
+            if(!i || !j)
+                c[i][j] = 0;
+            else if(a[i - 1] == b[j - 1])
+                c[i][j] = c[i - 1][j - 1] + 1;
+            else
+                c[i][j] = fmax(c[i - 1][j], c[i][j - 1]);
+        }
+    }
+    return c[a_len][b_len];
+}
+
+char * revstr(char * a)
+{
+    int a_len = strlen(a);
+    char * rev = malloc((a_len + 1) * sizeof(char));
+    strcpy(rev, a);
+    for(int i = 0, j = a_len - 1; i < j; ++i, --j)
+    {
+        char t = rev[i];
+        rev[i] = rev[j];
+        rev[j] = t;
+    }
+    return rev;
+}
+
+int longest_palin_subseq2(char * a)
+{
+    char * rev = revstr(a);
+    return longest_common_subseq(a, rev);
+}
+
 int main()
 {
     char * s = "liuywyxi";
     printf("longest_palin_substring = %d\n", longest_palin_substring(s));
     printf("longest_palin_subseq = %d\n", longest_palin_subseq(s));
+    
+    char * a = "liuywyxi";
+    char * b = "liuxics";
+    printf("%d\n", longest_palin_subseq2(a));
+    printf("%d\n", longest_common_subseq(a, b));
 }
