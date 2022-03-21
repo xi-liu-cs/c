@@ -18,8 +18,7 @@ vector<vector<int>> v
     {5,8,7},
     {0,9,0}
 };
-#define m v.size()
-#define n v[0].size()
+int m = v.size(), n = v[0].size();
 int * a[3];
 
 void copy()
