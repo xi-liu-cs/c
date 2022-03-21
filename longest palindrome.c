@@ -1,10 +1,18 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
 #include <stdbool.h>
 
-void p(char * a, int start, int len)
+void p_substr(char * a, int start, int len)
 {
     for(int i = 0; i < len; ++i)
         printf("%c", a[start + i]);
@@ -50,11 +58,11 @@ int longest_palin_substring(char * a)
             }
         }
     }
-    p(a, start, max_len);
+    p_substr(a, start, max_len);
     return max_len;
 }
 
-void p(int * a, int n)
+void p_subseq(int * a, int n)
 {
     for(int i = 0; i < n; ++i)
     {
@@ -82,7 +90,7 @@ int longest_palin_subseq(char * a)
                 memo[i][j] = fmax(memo[i + 1][j], memo[i][j - 1]);
         }
     }
-    p((int *)memo, n);
+    p_subseq((int *)memo, n);
     return memo[0][n - 1];
 }
 
