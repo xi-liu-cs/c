@@ -1,3 +1,11 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -54,6 +62,16 @@ int longest_palin_substring(char * a)
     return max_len;
 }
 
+void p(int * a, int n)
+{
+    for(int i = 0; i < n; ++i)
+    {
+        for(int j = 0; j < n; ++j)
+            printf("%d ", a[i * n + j]);
+        printf("\n");
+    }
+}
+
 int longest_palin_subseq(char * a)
 {/* consecutive not required */
     int n = strlen(a);
@@ -61,19 +79,19 @@ int longest_palin_subseq(char * a)
     memset(memo, 0, sizeof(memo));
     for(int i = 0; i < n; ++i)
         memo[i][i] = 1;
-    for(int i = 0; i < n; ++i)
+    for(int sub_len = 2; sub_len <= n; ++sub_len)
     {
-        for(int j = i + 1; j < n; ++j)
+        for(int i = 0; i < n - sub_len + 1; ++i)
         {
+            int j = i + sub_len - 1;
             if(a[i] == a[j])
                 memo[i][j] = memo[i + 1][j - 1] + 2;
             else
                 memo[i][j] = fmax(memo[i + 1][j], memo[i][j - 1]);
-            printf("%d ", memo[i][j]);
         }
-        printf("\n");
     }
-    return memo[n - 1][n - 1];
+    p((int *)memo, n);
+    return memo[0][n - 1];
 }
 
 int main()
