@@ -49,7 +49,7 @@ int main()
     printf("sizeof(a) = %ld\n", sizeof(a));
     printf("sizeof(*a) = %ld\n", sizeof(*a));
     
-    printf("\nb:\n");
+    printf("\nary:\n");
     int ** ary = malloc(r * sizeof(int *) + r * c * sizeof(int));
     int * ptr = (int *)(ary + r);
     for(int i = 0; i < r; ++i)
