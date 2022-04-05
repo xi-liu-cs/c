@@ -66,4 +66,19 @@ int main()
     }
     printf("\nprint ary:\n");
     print((int *)(ary + r), r, c);
+    
+    printf("\narray:\n");
+    int * array = malloc(r * c * sizeof(int));
+    cnt = 0;
+    for(int i = 0; i < r; ++i)
+    {
+        for(int j = 0; j < c; ++j)
+        {
+            *(*((int (*)[c])array + i) + j) = cnt++;
+            printf("%d ", *(*((int (*)[c])array + i) + j));
+        }
+        printf("\n");
+    }
+    printf("\nprint array:\n");
+    print(array, r, c);
 }
