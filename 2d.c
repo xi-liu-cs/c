@@ -39,7 +39,7 @@ int main()
     
     for(int i = 0; i < r; ++i)
     {
-        printf("*(a + %d) = %p, **(a + %d) = %d\n", i, *(a + i), i, **(a + i));
+        printf("*(a + %d) = %p, **(a + %d) = %d\n", i, *((int (*)[c])a + i), i, **(a + i));
     }
     
     for(int i = 0; i < r; ++i)
