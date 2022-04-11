@@ -20,8 +20,8 @@ void graph::dfs(int v)
 {
     visited[v] = true;
     printf("%d ", v);
-    for (list<int>::iterator i = adj[v].begin(); i != adj[v].end(); ++i)
-        if (!visited[*i])
+    for(list<int>::iterator i = adj[v].begin(); i != adj[v].end(); ++i)
+        if(!visited[*i])
             dfs(*i);
 }
  
