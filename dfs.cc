@@ -1,15 +1,24 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <list>
-#include <map>
 using namespace std;
 
 struct graph 
 {
-    map<int, bool> visited;
-    map<int, list<int>> adj;
+    int n_v;
+    bool * visited;
+    list<int> * adj;
+    graph(int n_v);
     void add_edge(int v1, int v2);
     void dfs(int v);
 };
+
+graph::graph(int n_v)
+{
+    this->n_v = n_v;
+    adj = new list<int>[n_v];
+    visited = (bool *)malloc(n_v * sizeof(int));
+}
  
 void graph::add_edge(int v1, int v2)
 {
@@ -27,7 +36,7 @@ void graph::dfs(int v)
  
 int main()
 {
-    graph g;
+    graph g(4);
     g.add_edge(0, 1);
     g.add_edge(0, 2);
     g.add_edge(1, 2);
