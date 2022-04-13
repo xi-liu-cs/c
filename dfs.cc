@@ -17,7 +17,7 @@ graph::graph(int n_v)
 {
     this->n_v = n_v;
     adj = new list<int>[n_v];
-    visited = (bool *)malloc(n_v * sizeof(int));
+    visited = (bool *)malloc(n_v * sizeof(bool));
 }
  
 void graph::add_edge(int v1, int v2)
