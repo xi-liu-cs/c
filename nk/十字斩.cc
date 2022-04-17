@@ -33,8 +33,8 @@ int main()
         {
             for(int j = 0; j < n; ++j)
             {
-                int cur_sum = row_sums[i] + col_sums[j] - box[i][j];
-                if(cur_sum > max_sum) /* row_sums[i] + col_sums[j] will count box[i][j] twice */
+                int cur_sum = row_sums[i] + col_sums[j] - box[i][j]; /* row_sums[i] + col_sums[j] will count box[i][j] twice */
+                if(cur_sum > max_sum) 
                 {  
                     max_sum = cur_sum;
                     max_i = i;
