@@ -4,7 +4,7 @@
 
 void print_num(char * p, int n, char separate)
 {
-  for(int i = 0; i < n; i++)
+  for(int i = 0; i < n; ++i)
   {
     if(*p >= 'A' && *p <= 'Z')
       printf(separate == 'y' ? "%d ": "%d", *p - 'A' + 1);
@@ -12,7 +12,7 @@ void print_num(char * p, int n, char separate)
       printf(separate == 'y' ? "%d ": "%d", *p - 'a' + 1);
     else if(*p >= '0' && *p <= '9')
       printf(separate == 'y' ? "%d ": "%d", *p - '0');
-    p++;
+    ++p;
   }
 }
 
@@ -36,7 +36,7 @@ int main()
     }
     s[i] = c;
     scanf("%c", &c);
-    i++;
+    ++i;
   }
   print_num(s, i, separate);
   free(s);
