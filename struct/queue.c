@@ -14,7 +14,7 @@ queue * create_queue()
     q->head = q->size = 0;
     q->block = q->cur_sz = 32;
     q->tail = q->cur_sz - 1;
-    q->array = malloc(q->cur_sz * sizeof(void *));
+    q->array = (void **)malloc(q->cur_sz * sizeof(void *));
     return q;
 }
 
@@ -26,12 +26,11 @@ void enqueue(queue * q, void * item)
     if (is_full(q))
     {
         q->cur_sz += q->block;
-        q->array = realloc(q->array, q->cur_sz * sizeof(void *));
+        q->array = (void **)realloc(q->array, q->cur_sz * sizeof(void *));
     }
     q->tail = (q->tail + 1) % q->cur_sz;
     q->array[q->tail] = item;
     ++(q->size);
-    printf("%d enqueued to queue\n", *(int *)item);
 }
 
 void * dequeue(queue * q)
@@ -58,17 +57,25 @@ void * back(queue * q)
     return q->array[q->tail];
 }
 
+void print(queue * q)
+{
+    printf("queue: ");
+    for(int i = 0; i < q->size; ++i)
+        printf("%d ", *(int *)(q->array[(q->head + i) % (q->size)]));
+    printf("\n");
+}
+
 int main()
 {
     queue * q = create_queue();
-    
     int data[] = {4, 3, 2, 1, 0};
     enqueue(q, data);
     enqueue(q, data + 1);
     enqueue(q, data + 2);
     enqueue(q, data + 3);
-    
-    printf("%d dequeued from queue\n\n", *(int *)dequeue(q));
+    enqueue(q, data + 4);
+    print(q);
+    printf("%d dequeued\n", *(int *)dequeue(q));
     printf("front item is %d\n", *(int *)front(q));
     printf("back item is %d\n", *(int *)back(q));
 }
