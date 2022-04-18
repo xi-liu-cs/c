@@ -4,7 +4,7 @@
 typedef struct queue 
 {
     int head, tail, size;
-    unsigned block, cur_sz;
+    unsigned cur_sz;
     void ** array;
 }queue;
  
@@ -12,7 +12,7 @@ queue * malloc_queue()
 {
     queue * q = (queue *)malloc(sizeof(queue));
     q->head = q->size = 0;
-    q->block = q->cur_sz = 32;
+    q->cur_sz = 32;
     q->tail = q->cur_sz - 1;
     q->array = (void **)malloc(q->cur_sz * sizeof(void *));
     return q;
@@ -25,7 +25,7 @@ void enqueue(queue * q, void * item)
 {
     if (is_full(q))
     {
-        q->cur_sz += q->block;
+        q->cur_sz *= 2;
         q->array = (void **)realloc(q->array, q->cur_sz * sizeof(void *));
     }
     q->tail = (q->tail + 1) % q->cur_sz;
