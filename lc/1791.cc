@@ -1,4 +1,4 @@
-int findCenter(vector<vector<int>>& edges) 
+int findCenter(vector<vector<int>> & edges) 
 {
     int n = edges.size() + 1; /* from problem: edges.length == n - 1 */
     vector<int> deg(n + 1, 0);
