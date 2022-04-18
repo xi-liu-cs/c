@@ -61,7 +61,7 @@ void print(queue * q)
 {
     printf("queue: ");
     for(int i = 0; i < q->size; ++i)
-        printf("%d ", *(int *)(q->array[(q->head + i) % (q->size)]));
+        printf("%d ", *(int *)(q->array[(q->head + i) % q->size]));
     printf("\n");
 }
 
