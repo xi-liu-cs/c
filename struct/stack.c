@@ -4,7 +4,7 @@
 typedef struct stack
 {
     int head, tail, size;
-    unsigned block, cur_sz;
+    unsigned cur_sz;
     void ** array;
 }stack;
  
@@ -12,7 +12,7 @@ stack * malloc_stack()
 {
     stack * s = (stack *)malloc(sizeof(stack));
     s->head = s->size = 0;
-    s->block = s->cur_sz = 32;
+    s->cur_sz = 32;
     s->tail = s->cur_sz - 1;
     s->array = (void **)malloc(s->cur_sz * sizeof(void *));
     return s;
@@ -25,7 +25,7 @@ void push(stack * s, void * item)
 {
     if (is_full(s))
     {
-        s->cur_sz += s->block;
+        s->cur_sz *= 2;
         s->array = (void **)realloc(s->array, s->cur_sz * sizeof(void *));
     }
     s->tail = (s->tail + 1) % s->cur_sz;
