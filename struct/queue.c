@@ -8,7 +8,7 @@ typedef struct queue
     void ** array;
 }queue;
  
-queue * create_queue()
+queue * malloc_queue()
 {
     queue * q = (queue *)malloc(sizeof(queue));
     q->head = q->size = 0;
@@ -67,7 +67,7 @@ void print(queue * q)
 
 int main()
 {
-    queue * q = create_queue();
+    queue * q = malloc_queue();
     int data[] = {4, 3, 2, 1, 0};
     enqueue(q, data);
     enqueue(q, data + 1);
