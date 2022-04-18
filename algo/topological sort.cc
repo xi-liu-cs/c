@@ -30,8 +30,8 @@ void graph::topo_sort_helper(void * v, bool * visited, stack<void *> & s)
 {
     int cur_id = *(int *)v;
     visited[cur_id] = true;
-    for (list<void *>::iterator i = adj[cur_id].begin(); i != adj[cur_id].end(); ++i)
-        if (!visited[*(int *)*i])
+    for(list<void *>::iterator i = adj[cur_id].begin(); i != adj[cur_id].end(); ++i)
+        if(!visited[*(int *)*i])
             topo_sort_helper(*i, visited, s);
     s.push(v);
 }
@@ -42,11 +42,11 @@ void graph::topo_sort(void * data)
     bool * visited = (bool *)malloc(v * sizeof(bool));
     memset(visited, false, v * sizeof(bool));
     
-    for (int i = 0; i < v; ++i)
-        if (!visited[i])
+    for(int i = 0; i < v; ++i)
+        if(!visited[i])
             topo_sort_helper((int *)data + i, visited, s);
             
-    while (!s.empty()) 
+    while(!s.empty()) 
     {
         printf("%d ", *(int *)s.top());
         s.pop();
