@@ -21,7 +21,7 @@ queue * malloc_queue()
 int is_full(queue * q){ return q->size == q->cur_sz; }
 int is_empty(queue * q){ return q->size == 0; }
 
-void enqueue(queue * q, void * item)
+void enq(queue * q, void * item)
 {
     if (is_full(q))
     {
@@ -33,7 +33,7 @@ void enqueue(queue * q, void * item)
     ++(q->size);
 }
 
-void * dequeue(queue * q)
+void * deq(queue * q)
 {
     if (is_empty(q))
         return 0;
@@ -69,13 +69,13 @@ int main()
 {
     queue * q = malloc_queue();
     int data[] = {4, 3, 2, 1, 0};
-    enqueue(q, data);
-    enqueue(q, data + 1);
-    enqueue(q, data + 2);
-    enqueue(q, data + 3);
-    enqueue(q, data + 4);
+    enq(q, data);
+    enq(q, data + 1);
+    enq(q, data + 2);
+    enq(q, data + 3);
+    enq(q, data + 4);
     print(q);
-    printf("%d dequeued\n", *(int *)dequeue(q));
+    printf("%d dequeued\n", *(int *)deq(q));
     printf("front item is %d\n", *(int *)front(q));
     printf("back item is %d\n", *(int *)back(q));
 }
