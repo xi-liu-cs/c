@@ -1,0 +1,3 @@
+https://www.geeksforgeeks.org/function-pointer-in-c/
+
+https://www.codeproject.com/Tips/800474/Function-Pointer-in-C-Struct
