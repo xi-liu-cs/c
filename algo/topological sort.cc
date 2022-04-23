@@ -11,7 +11,7 @@ struct graph
     list<void *> * adj;
     graph(int v);
     void add_edge(void * v1, void * v2);
-    void topo_sort_helper(void * v, bool * visited, stack<void *> & s);
+    void visit(void * v, bool * visited, stack<void *> & s);
     void topo_sort(void * data);
 };
  
@@ -26,13 +26,13 @@ void graph::add_edge(void * v1, void * v2)
     adj[*(int *)v1].push_back(v2);
 }
 
-void graph::topo_sort_helper(void * v, bool * visited, stack<void *> & s)
+void graph::visit(void * v, bool * visited, stack<void *> & s)
 {
     int cur_id = *(int *)v;
     visited[cur_id] = true;
     for(list<void *>::iterator i = adj[cur_id].begin(); i != adj[cur_id].end(); ++i)
         if(!visited[*(int *)*i])
-            topo_sort_helper(*i, visited, s);
+            visit(*i, visited, s);
     s.push(v);
 }
 
@@ -44,7 +44,7 @@ void graph::topo_sort(void * data)
     
     for(int i = 0; i < v; ++i)
         if(!visited[i])
-            topo_sort_helper((int *)data + i, visited, s);
+            visit((int *)data + i, visited, s);
             
     while(!s.empty()) 
     {
