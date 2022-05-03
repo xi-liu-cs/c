@@ -4,11 +4,14 @@ vector<int> stk;
 void dfs(vector<vector<int>> & graph, int i)
 {
     if(i == graph.size() - 1) /* dest = n - 1 */
-        paths.push_back(stk);
-    for(auto & v : graph[i])
     {
-        stk.push_back(v);
-        dfs(graph, v);
+        paths.push_back(stk);
+        return;
+    }
+    for(auto & j : graph[i])
+    {
+        stk.push_back(j);
+        dfs(graph, j);
         stk.pop_back();
     }
 }
