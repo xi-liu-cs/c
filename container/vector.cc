@@ -5,13 +5,24 @@ template <typename type>
 struct vector
 {
     type * a;
-    int cur_sz;
     int cap_sz;
+    int cur_sz;
     vector();
-    void push_back(type data);
     type operator[](int i){ return *(a + i); }
     type * data(){ return a; }
+    void print();
+    void push_back(type data);
+    void pop_back(){ --cur_sz; }
+    
 };
+
+template <typename type>
+void vector<type>::print()
+{
+    for(int i = 0; i < cur_sz; ++i)
+        printf("%d ", a[i]);
+    printf("\n");
+}
 
 template <typename type>
 vector<type>::vector()
@@ -36,7 +47,11 @@ void vector<type>::push_back(type data)
 int main()
 {
     vector<int> a;
-    a.push_back(32);
+    for(int i = 0; i < 4; ++i)
+        a.push_back(i);
     printf("a[0] = %d\n", a[0]);
     printf("*a.data() = %d\n", *a.data());
+    a.print();
+    a.pop_back();
+    a.print();
 }
