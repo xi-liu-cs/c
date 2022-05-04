@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-using namespace std;
 
 template <typename type>
 struct vector
