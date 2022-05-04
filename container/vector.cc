@@ -8,12 +8,13 @@ struct vector
     int cap_sz;
     int cur_sz;
     vector();
-    type operator[](int i){ return *(a + i); }
+    type & operator*(){ return *a; }
+    type * operator+(int i){ return a + i; }
+    type & operator[](int i){ return *(a + i); }
     type * data(){ return a; }
     void print();
     void push_back(type data);
     void pop_back(){ --cur_sz; }
-    
 };
 
 template <typename type>
@@ -53,5 +54,8 @@ int main()
     printf("*a.data() = %d\n", *a.data());
     a.print();
     a.pop_back();
+    *a = 1;
+    *(a + 1) = 2;
+    a[2] = 3;
     a.print();
 }
