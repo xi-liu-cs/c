@@ -53,9 +53,10 @@ int main()
     printf("a[0] = %d\n", a[0]);
     printf("*a.data() = %d\n", *a.data());
     a.print();
+    
     a.pop_back();
-    *a = 1;
+    *a = 3;
     *(a + 1) = 2;
-    a[2] = 3;
+    a[2] = 1;
     a.print();
 }
