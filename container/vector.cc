@@ -12,6 +12,8 @@ struct vector
     type * operator+(int i){ return a + i; }
     type & operator[](int i){ return *(a + i); }
     type * data(){ return a; }
+    type * begin(){ return a; }
+    type * end(){ return a + cur_sz; }
     void print();
     void push_back(type data);
     void pop_back(){ --cur_sz; }
