@@ -31,7 +31,7 @@ void min_heapify(vtex ** a, int i, int n)
  
 void build_min_heap(vtex ** a, int n)
 {
-    for(int i = n / 2 - 1; i >= 0; --i)
+    for(int i = parent(n - 1); i >= 0; --i)
         min_heapify(a, i, n);
 }
 
@@ -54,8 +54,8 @@ void print(vtex ** a, int n)
 
 int main()
 {
-    vtex data[] = {{4}, {3}, {2}, {9}, {1}};
-    vtex * a[] = {data, data + 1, data + 2, data + 3, data + 4};
+    vtex data[] = {{8}, {4}, {8}, {6}, {1}, {3}, {1}};
+    vtex * a[] = {data, data + 1, data + 2, data + 3, data + 4, data + 5, data + 6};
     int n = sizeof(a) / sizeof(*a);
     print(a, n);
     heap_sort(a, n);
