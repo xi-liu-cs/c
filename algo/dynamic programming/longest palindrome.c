@@ -127,7 +127,7 @@ int longest_palin_subseq2(char * a)
 
 int main()
 {
-    char * s = "liu101xi";
+    char * s = "liu010xi";
     printf("longest_palin_substring = %d\n", longest_palin_substring(s));
     printf("longest_palin_subseq = %d\n", longest_palin_subseq(s));
     printf("longest_palin_subseq2 = %d\n", longest_palin_subseq2(s));
