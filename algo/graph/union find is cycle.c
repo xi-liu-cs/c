@@ -71,9 +71,9 @@ int main()
 {
     int n_vtex = 3, n_edge = 3; /* also modify n_edge if more or less add_edge() calls */
     graph * g = malloc_graph(n_vtex, n_edge);
-    vtex vtex_data[] = {{0}, {1}, {2}};
-    add_edge(g, vtex_data, vtex_data + 1);
-    add_edge(g, vtex_data, vtex_data + 2);
-    add_edge(g, vtex_data + 1, vtex_data + 2);
+    vtex data[] = {{0}, {1}, {2}};
+    add_edge(g, data, data + 1);
+    add_edge(g, data, data + 2);
+    add_edge(g, data + 1, data + 2);
     printf("is_cycle = %d\n", is_cycle(g));
 }
