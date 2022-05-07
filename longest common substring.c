@@ -39,8 +39,8 @@ int lcs(char * a, int m, char * b, int n)
 
 int main()
 {
-   char * a = "liuyuxi";
-   char * b = "yangyuxi";
+   char * a = "liuxi";
+   char * b = "xi";
    printf("lcs_rec = %d\n", lcs_rec(a, strlen(a), b, strlen(b), 0));
    printf("lcs = %d\n", lcs(a, strlen(a), b, strlen(b)));
 }
