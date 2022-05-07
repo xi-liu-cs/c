@@ -121,7 +121,7 @@ s * lcs(char * a, int a_len, char * b, int b_len)
 
 int main()
 {
-    char * a = "liulexiyi";
+    char * a = "liu01xi23";
     char * b = "liuxics";
     int a_len = strlen(a), b_len = strlen(b);
     s * ret = lcs(a, a_len, b, b_len);
