@@ -1,0 +1,5 @@
+https://www.geeksforgeeks.org/union-find/
+
+https://www.techiedelight.com/union-find-algorithm-cycle-detection-graph/#:~:text=Create%20disjoint%20sets%20for%20each%20vertex%20of%20the%20graph.&text=i)%20Find%20the%20root%20of,sets%2C%20a%20cycle%20is%20found.
+
+https://www.geeksforgeeks.org/disjoint-set-data-structures/
