@@ -165,8 +165,8 @@ void mst_prim(graph * g)
         q->a[v] = malloc_min_heap_vtex(v, key[v]);
         q->pos[v] = v;
     }
-    key[0] = 0; /* make 0th vertex extracted first */
-    *q->a = malloc_min_heap_vtex(0, key[0]);
+    *key = 0; /* make 0th vertex extracted first */
+    *q->a = malloc_min_heap_vtex(0, *key);
     *q->pos = 0;
     q->cur_sz = n_vtex;
     while (!is_empty(q)) 
