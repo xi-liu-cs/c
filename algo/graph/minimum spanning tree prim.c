@@ -158,12 +158,12 @@ void mst_prim(graph * g)
     int parent[n_vtex]; /* constructed mst */
     int key[n_vtex]; /* key values used to pick minimum weight edge in cut */
     min_heap * q = malloc_min_heap(n_vtex); /* min priority queue */
-    for(int v = 1; v < n_vtex; ++v) 
+    for(int i = 1; i < n_vtex; ++i) 
     {
-        parent[v] = -1;
-        key[v] = ((unsigned)1 << 31) - 1;
-        q->a[v] = malloc_min_heap_vtex(v, key[v]);
-        q->pos[v] = v;
+        parent[i] = -1;
+        key[i] = ((unsigned)1 << 31) - 1;
+        q->a[i] = malloc_min_heap_vtex(i, key[i]);
+        q->pos[i] = i;
     }
     *key = 0; /* make 0th vertex extracted first */
     *q->a = malloc_min_heap_vtex(0, *key);
