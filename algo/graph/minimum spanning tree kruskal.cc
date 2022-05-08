@@ -107,7 +107,7 @@ vector<edge *> mst_kruskal(graph * g)
         {
             mst.push_back(g->eg_vec[i]);
             uni(d, g->eg_vec[i]->src, g->eg_vec[i]->dest);
-            printf("edge %d -> %d has weight %d\n", g->eg_vec[i]->src->vtex_id, g->eg_vec[i]->dest->vtex_id, g->eg_vec[i]->weight);
+            printf("%d -> %d : %d\n", g->eg_vec[i]->src->vtex_id, g->eg_vec[i]->dest->vtex_id, g->eg_vec[i]->weight);
         }
     }
     return mst;
