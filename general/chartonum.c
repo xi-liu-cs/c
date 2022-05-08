@@ -40,5 +40,4 @@ int main()
   }
   print_num(s, i, separate);
   free(s);
-  return 0;
 }
