@@ -156,7 +156,7 @@ void mst_prim(graph * g)
 {
     int n_vtex = g->n_vtex;
     int parent[n_vtex]; /* constructed mst */
-    int key[n_vtex]; /* Key values used to pick minimum weight edge in cut */
+    int key[n_vtex]; /* key values used to pick minimum weight edge in cut */
     min_heap * q = malloc_min_heap(n_vtex); /* min priority queue */
     for(int v = 1; v < n_vtex; ++v) 
     {
