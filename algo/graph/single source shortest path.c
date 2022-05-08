@@ -146,7 +146,7 @@ bool is_in_min_heap(min_heap * a, int v)
     return false;
 }
 
-void print_dest(int * dist, int n)
+void print_dist(int * dist, int n)
 {
     printf("vtex, dist from src\n");
     for(int i = 0; i < n; ++i)
@@ -184,7 +184,7 @@ void dijkstra(graph * g, int src)
             }
         }
     }
-    print_dest(dist, n_vtex);
+    print_dist(dist, n_vtex);
 }
   
 int main()
