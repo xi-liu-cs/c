@@ -131,7 +131,7 @@ void decrease_key(min_heap * a, int v, int key)
     int i = a->pos[v];
     a->a[i]->key = key;
     while (i && a->a[parent(i)]->key > a->a[i]->key) 
-    {/* O(lg n) loop */
+    {/* lg(n) loop */
         a->pos[a->a[i]->v] = parent(i);
         a->pos[a->a[parent(i)]->v] = i;
         swap_min_heap_vtex(a->a + i, a->a + parent(i));
