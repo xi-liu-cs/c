@@ -115,7 +115,7 @@ int is_empty(min_heap * a)
 
 min_heap_vtex * extract_min(min_heap * a)
 {
-    if (is_empty(a))
+    if(is_empty(a))
         return 0;
     min_heap_vtex * root = *a->a, * last_vtex = a->a[a->cur_sz - 1];
     *a->a = last_vtex;
@@ -130,7 +130,7 @@ void decrease_key(min_heap * a, int v, int key)
 {/* decrease key of vertex v, use pos[] to get current index of node in min heap */
     int i = a->pos[v];
     a->a[i]->key = key;
-    while (i && a->a[parent(i)]->key > a->a[i]->key) 
+    while(i && a->a[parent(i)]->key > a->a[i]->key) 
     {/* lg(n) loop */
         a->pos[a->a[i]->v] = parent(i);
         a->pos[a->a[parent(i)]->v] = i;
@@ -148,7 +148,7 @@ bool is_in_min_heap(min_heap * a, int v)
  
 void print_edge(int * parent, int n)
 {
-    for (int i = 1; i < n; ++i)
+    for(int i = 1; i < n; ++i)
         printf("%d -> %d\n", parent[i], i);
 }
 
@@ -169,14 +169,14 @@ void mst_prim(graph * g)
     *q->a = malloc_min_heap_vtex(0, *key);
     *q->pos = 0;
     q->cur_sz = n_vtex;
-    while (!is_empty(q)) 
+    while(!is_empty(q)) 
     {/* q contains all nodes not yet added to mst */
         min_heap_vtex * min_vtex = extract_min(q);
         int u = min_vtex->v;
         for(vtex * i = g->adj[u].head; i; i = i->next) 
         {
             int v = i->dest;
-            if (is_in_min_heap(q, v) && i->weight < key[v])
+            if(is_in_min_heap(q, v) && i->weight < key[v])
             {
                 parent[v] = u;
                 key[v] = i->weight;
