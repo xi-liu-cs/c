@@ -146,10 +146,10 @@ bool is_in_min_heap(min_heap * a, int v)
     return false;
 }
  
-void print_edge(int * a, int n)
+void print_edge(int * parent, int n)
 {
     for (int i = 1; i < n; ++i)
-        printf("%d -> %d\n", a[i], i);
+        printf("%d -> %d\n", parent[i], i);
 }
 
 void mst_prim(graph * g)
