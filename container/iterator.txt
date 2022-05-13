@@ -1,3 +1,5 @@
 https://www.internalpointers.com/post/writing-custom-iterators-modern-cpp
 
 https://stackoverflow.com/questions/8054273/how-to-implement-an-stl-style-iterator-and-avoid-common-pitfalls
+
+https://www.youtube.com/watch?v=F9eDv-YIOQ0
