@@ -97,7 +97,7 @@ void vector<type>::push_back(type data)
 template <typename type>
 void vector<type>::operator=(std::initializer_list<type> l)
 {
-    cur_sz = l.size();
+    cur_sz = cap_sz = l.size();
     a = (type *)malloc(l.size() * sizeof(type));
     typename std::initializer_list<type>::iterator it = l.begin();
     for(int i = 0; i < l.size(); ++i)
