@@ -142,5 +142,4 @@ int main()
     vector<int> b = {1, 2, 3, 4};
     printf("b = {}\n");
     b.print();
-    printf("\n");
 }
