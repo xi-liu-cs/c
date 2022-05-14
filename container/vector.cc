@@ -52,7 +52,7 @@ struct vector
     void print();
     void push_back(type data);
     void pop_back(){ --cur_sz; }
-    using iterator = iterator<type>;
+    using iterator = struct iterator<type>;
     iterator begin(){ return iterator(a); }
     iterator end(){ return iterator(a + cur_sz); }
 };
