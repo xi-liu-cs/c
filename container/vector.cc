@@ -15,7 +15,7 @@ struct iterator
     iterator operator++(int)
     {
         iterator i = *this;
-        ++(*this);
+        ++*this;
         return i;
     }
     iterator & operator--()
@@ -26,7 +26,7 @@ struct iterator
     iterator operator--(int)
     {
         iterator i = *this;
-        --(*this);
+        --*this;
         return i;
     }
     type & operator[](int i){ return *(a + i); }
