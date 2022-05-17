@@ -1,39 +1,32 @@
-map<char, string> phone_map
-{
-    {'2', "abc"}, 
-    {'3', "def"},
-    {'4', "ghi"},
-    {'5', "jkl"}, 
-    {'6', "mno"},
-    {'7', "pqrs"},
-    {'8', "tuv"},
-    {'9', "wxyz"},
-};
-vector<string> comb;
-string str;
-string digit;
+char * phone_map[] = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+char ** comb; int comb_sz;
+char * str; int str_sz;
+char * digit;
 
 void back_track(int i)
 {
-    if(i == digit.size())
+    if(i == strlen(digit))
     {
-        comb.push_back(str);
+        size_t sz = (str_sz + 1) * sizeof(char);
+        char * buf = (char *)malloc(sz);
+        memcpy(buf, str, sz);
+        comb[comb_sz++] = buf;
         return;
     }
-    string str_in_map = phone_map[digit[i]];
-    for(int j = 0; j < str_in_map.size(); ++j)
+    else
     {
-        str += str_in_map[j];
-        back_track(i + 1);
-        str.erase(str.end() - 1);
+        char * str_in_map = phone_map[i];
+        for(int j = 0; j < str_sz; ++j)
+        {
+            str[str_sz++] = str_in_map[j];
+            back_track(i + 1);
+            --str_sz;
+        }
     }
 }
 
-vector<string> letterCombinations(string digits) 
+char ** letterCombinations(char * digits, int * return_size)
 {
     digit = digits;
-    if(!digits.size())
-        return comb;
-    back_track(0);
-    return comb;
+    
 }
