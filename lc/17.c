@@ -1,7 +1,3 @@
-/**
- * Note: The returned array must be malloced, assume caller calls free().
- */
-
 char * phone_map[] = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
 char ** comb; int comb_sz;
 char * str; int str_sz;
