@@ -16,7 +16,10 @@ string digit;
 void back_track(int i)
 {
     if(i == digit.size())
+    {
         comb.push_back(str);
+        return;
+    }
     string str_in_map = phone_map[digit[i]];
     for(int j = 0; j < str_in_map.size(); ++j)
     {
