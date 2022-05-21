@@ -1,6 +1,6 @@
 vector<string> ret;
 string cur;
-int num;
+int _n;
 
 bool valid()
 {
@@ -19,7 +19,7 @@ bool valid()
 
 void generate()
 {
-    if(cur.size() == num)
+    if(cur.size() == 2 * _n)
     {
         if(valid())
             ret.push_back(cur);
@@ -35,7 +35,7 @@ void generate()
 
 vector<string> generateParenthesis(int n) 
 {
-    num = 2 * n;
+    _n = n;
     generate();
     return ret;
 }
