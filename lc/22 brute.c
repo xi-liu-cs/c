@@ -33,7 +33,7 @@ void push_back(char ** cur, char c)
     if(cur_sz + 1 > cur_cap)
     {
         cur_cap *= 2;
-        *cur = realloc(*cur, cur_cap * sizeof(char));
+        *cur = (char *)realloc(*cur, cur_cap * sizeof(char));
     }
     if(*cur)
     {
