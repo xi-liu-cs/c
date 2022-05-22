@@ -10,7 +10,7 @@ int _n;
 bool valid()
 {
     int balance = 0;
-    for(int i = 0; i < cur_sz; ++i)
+    for(int i = 0; i < cur_sz - 1; ++i)
     {
         if(cur[i] == '(')
             ++balance;
@@ -24,12 +24,6 @@ bool valid()
 
 void push_back(char ** cur, char c)
 {
-    if(!*cur)
-    {
-        *cur = (char *)malloc(cur_cap * sizeof(char));
-        cur_sz = 0;
-        cur[cur_sz++] = '\0'; 
-    }
     if(cur_sz + 1 > cur_cap)
     {
         cur_cap *= 2;
@@ -44,14 +38,8 @@ void push_back(char ** cur, char c)
 
 void pop_back(char ** cur)
 {
-    if(cur_sz - 1 <= 0)
-    {
-        free(*cur);
-        *cur = 0;
-        --cur_sz;
-        return;
-    }
-    (*cur)[cur_sz - 2] = '\0';
+    if(cur_sz - 2 >= 0)
+        (*cur)[cur_sz - 2] = '\0';
     --cur_sz;
 }
 
@@ -84,7 +72,9 @@ char ** generateParenthesis(int n, int * return_size)
 {
     _n = n;
     ret = (char **)malloc(ret_cap * sizeof(char *));
-    cur = 0;
+    cur = (char *)malloc(cur_cap * sizeof(char));
+    *cur = '\0';
+    cur_sz = 1;
     generate();
     *return_size = ret_sz;
     return ret;
