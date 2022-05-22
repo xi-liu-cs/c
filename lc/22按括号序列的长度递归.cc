@@ -2,6 +2,8 @@ vector<shared_ptr<vector<string>>> cache{9, nullptr};
 
 shared_ptr<vector<string>> generate(int n)
 {
+    if(cache[n])
+        return cache[n];
     if(!n)
         cache[0] = shared_ptr<vector<string>>(new vector<string>{""});
     else
