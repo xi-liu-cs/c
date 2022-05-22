@@ -11,8 +11,8 @@ shared_ptr<vector<string>> generate(int n)
         auto cur = shared_ptr<vector<string>>(new vector<string>);
         for(int i = 0; i < n; ++i)
         {
-            auto lefts = generate(i);
-            auto rights = generate(n - i - 1);
+            auto lefts = generate(i),
+            rights = generate(n - i - 1);
             for(string & left : *lefts)
                 for(string & right : *rights)
                     cur->push_back('(' + left + ')' + right);
