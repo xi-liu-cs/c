@@ -1,0 +1,8 @@
+setup of an opengl programming environment using glfw & mingw
+https://www.youtube.com/watch?v=1s8C9dXRXmM
+git for windows: https://git-scm.com/downloads
+minggw binaries: https://winlibs.com/
+cmake: https://cmake.org/
+third party library: https://www.glfw.org/
+glad generator: https://glad.dav1d.de/
+

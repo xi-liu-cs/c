@@ -1,0 +1,3 @@
+powershell
+gcc -o window.exe window.c .\src\glad.c -lopengl32 -lglfw3 -lgdi32
+.\window
