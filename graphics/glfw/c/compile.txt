@@ -1,3 +1,7 @@
 powershell
 gcc -o window.exe window.c .\src\glad.c -lopengl32 -lglfw3 -lgdi32
 .\window
+
+may need to change 
+#include <glad/gl.h> -> #include <glad/glad.h>
+gladLoadGL(glfwGetProcAddress) -> gladLoadGL()
