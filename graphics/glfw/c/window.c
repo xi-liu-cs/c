@@ -80,9 +80,9 @@ int main(int argc, char** argv)
                          ypos + size * (1 + (i >> 1)));
         glfwSetInputMode(windows[i], GLFW_STICKY_KEYS, GLFW_TRUE);
 
-        glfwMakeContextCurrent(windows[i]);
+	glfwMakeContextCurrent(windows[i]);
 	gladLoadGL();
-        glClearColor(colors[i].r, colors[i].g, colors[i].b, 1.f);
+	glClearColor(colors[i].r, colors[i].g, colors[i].b, 1.f);
     }
 
     for (int i = 0;  i < 4;  i++)
