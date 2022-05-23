@@ -5,3 +5,4 @@ minggw binaries: https://winlibs.com/
 cmake: https://cmake.org/
 third party library: https://www.glfw.org/
 glad generator: https://glad.dav1d.de/
+t.c: https://www.glfw.org/docs/latest/quick.html#quick_render
