@@ -1,7 +1,0 @@
-powershell
-gcc -o a.exe a.c .\src\glad.c -lopengl32 -lglfw3 -lgdi32
-./a
-
-may need to change 
-#include <glad/gl.h> -> #include <glad/glad.h>
-gladLoadGL(glfwGetProcAddress) -> gladLoadGL()
