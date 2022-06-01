@@ -1,2 +1,3 @@
 https://stackoverflow.com/questions/3272444/use-variadic-functions-in-c89-without-passing-number-of-arguments-or-a-final-arg
 https://en.cppreference.com/w/c/variadic/va_start
+https://linux.die.net/man/3/va_start
