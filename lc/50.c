@@ -1,3 +1,9 @@
+/* x ^ n =
+{
+    (x ^ 2) ^ (n / 2)   if n is even
+    x * (x ^ 2) ^ ((n - 1) / 2)   if n is odd
+} */
+
 typedef long long _long;
 
 double qmult(double x, _long n)
