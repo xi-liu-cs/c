@@ -1,7 +1,6 @@
 def findSubstring(self, s: str, words: List[str]) -> List[int]:
     if not s or not words:
         return []
-    from collections import Counter
     word_len = len(words[0])
     all_len = len(words) * word_len # all words len
     s_len = len(s)
