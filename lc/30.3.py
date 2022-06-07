@@ -1,9 +1,9 @@
 def findSubstring(self, s: str, words: List[str]) -> List[int]:
     if not s or not words:
         return []
+    s_len = len(s)
     word_len = len(words[0])
     word_num = len(words)
-    s_len = len(s)
     words_cntr = Counter(words)
     res = []
     for i in range(0, word_len):
