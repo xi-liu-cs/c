@@ -13,7 +13,3 @@ if(s[5] == ')')
     left parenthesis that match with s[5] is s[5 - 2 - 1] = s[5 - dp[4] - 1] = s[5 - dp[5 - 1] - 1] = s[2]
 if(s[i] == ')')
     left parenthesis that match with s[i] is s[i - dp[i - 1] - 1]
-    
-
-    
- 
