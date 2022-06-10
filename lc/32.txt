@@ -1,0 +1,19 @@
+0 1 2 3 4 5 i
+( ) ( ( ) ) s[i]
+0 0 0 0 0 0 dp
+
+0 1 2 3 4 5
+( ) ( ( ) )
+0 2 0 0 2 0
+i = 5: 
+find a left parenthesis within [0 : 4] to match with right parenthesis s[5]
+dp[5 - 1 = 4] = 2, so a left parenthesis that match with s[5] is not within [3 : 4]
+must look at char before i = 3 to find a left parenthesis that match with s[5]
+if(s[5] == ')')
+    left parenthesis that match with s[5] is s[5 - 2 - 1] = s[5 - dp[4] - 1] = s[5 - dp[5 - 1] - 1] = s[2]
+if(s[i] == ')')
+    left parenthesis that match with s[i] is s[i - dp[i - 1] - 1]
+    
+
+    
+ 
