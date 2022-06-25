@@ -1,0 +1,2 @@
+gcc a.c -lsqlite3
+https://zetcode.com/db/sqlitec/
