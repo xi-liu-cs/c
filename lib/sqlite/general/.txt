@@ -5,4 +5,6 @@ intro
 https://www.sqlite.org/cintro.html
 
 select
+need callback function
+sqlite definitive guide, owens 232
 https://videlais.com/2018/12/13/c-with-sqlite3-part-3-inserting-and-selecting-data/
