@@ -1,3 +1,8 @@
 gcc a.c -lsqlite3
 https://zetcode.com/db/sqlitec/
+
+intro
 https://www.sqlite.org/cintro.html
+
+select
+https://videlais.com/2018/12/13/c-with-sqlite3-part-3-inserting-and-selecting-data/
