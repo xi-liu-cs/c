@@ -1,1 +1,2 @@
 gcc a.c -lgmp
+g++ a.cc -lgmpxx -lgmp
