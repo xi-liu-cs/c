@@ -1,0 +1,7 @@
+https://stackoverflow.com/questions/30025727/c-reference-in-for-loop
+
+for (auto cpy : s1)
+cpy is a copy of character on current position
+
+for (auto & ref : s1)
+ref is a reference to character on current position
