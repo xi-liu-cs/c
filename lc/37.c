@@ -25,7 +25,7 @@ void dfs(char ** board, int space_i)
     }
 }
 
-void solveSudoku(char** board, int boardSize, int* boardColSize)
+void solveSudoku(char ** board, int board_size, int * board_col_size)
 {
     memset(row, false, sizeof(row));
     memset(col, false, sizeof(col));
