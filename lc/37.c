@@ -1,16 +1,9 @@
-int row[9],
-col[9],
-box[3][3],
+bool row[9][9],
+col[9][9],
+box[3][3][9],
 valid;
 int * space[81],
 space_sz;
-
-void flip(int i, int j, int idx)
-{
-    row[i] ^= 1 << idx;
-    col[j] ^= 1 << idx;
-    box[i / 3][j / 3] ^= 1 << idx;
-}
 
 void dfs(char ** board, int space_i)
 {
@@ -20,17 +13,15 @@ void dfs(char ** board, int space_i)
         return;
     }
     int i = *space[space_i], j = space[space_i][1];
-    int mask = ~(row[i] | col[j] | box[i / 3][j / 3]) & 0x1ff; 
-    /* ~(...) can only be true if a digit among row[i], col[j], and box[i / 3][j / 3] are all zeros
-    0x1ff = ignore zeros before rightmost 9 zeros */
-    for(; mask && !valid; mask &= mask - 1) /* mask &= mask - 1 change rightmost 1 to 0 */
+    for(int idx = 0; idx < 9; ++idx)
     {
-        int idx_mask = mask & -mask; /* -mask is represented as ~mask + 1, mask & ~mask = 0, mask & ~mask + 1 = 1 */
-        int idx = __builtin_ctz(idx_mask); /* count trailing zeros */
-        flip(i, j, idx);
-        board[i][j] = '0' + idx + 1;
-        dfs(board, space_i + 1);
-        flip(i, j, idx);
+        if(!row[i][idx] && !col[j][idx] && !box[i / 3][j / 3][idx] && !valid)
+        {
+            row[i][idx] = col[j][idx] = box[i / 3][j / 3][idx] = true;
+            board[i][j] = '0' + idx + 1;
+            dfs(board, space_i + 1);
+            row[i][idx] = col[j][idx] = box[i / 3][j / 3][idx] = false;
+        }
     }
 }
 
@@ -54,7 +45,7 @@ void solveSudoku(char ** board, int board_size, int * board_col_size)
             else
             {
                 int idx = board[i][j] - '0' - 1;
-                flip(i, j, idx);
+                row[i][idx] = col[j][idx] = box[i / 3][j / 3][idx] = true;
             }
         }   
     }
