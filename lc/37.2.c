@@ -23,7 +23,7 @@ void dfs(char ** board, int space_i)
     int mask = ~(row[i] | col[j] | box[i / 3][j / 3]) & 0x1ff; 
     /* ~(...) can only be true if a digit among row[i], col[j], and box[i / 3][j / 3] are all zeros
     0x1ff = ignore zeros before rightmost 9 zeros */
-    for(; mask && !valid; mask &= mask - 1) 
+    for(; mask && !valid; mask &= mask - 1) /* mask &= mask - 1 change rightmost 1 to 0 */
     {
         int idx_mask = mask & -mask; /* -mask is represented as ~mask + 1, mask & ~mask = 0, mask & ~mask + 1 = 1 */
         int idx = __builtin_ctz(idx_mask); /* count trailing zeros */
