@@ -29,7 +29,6 @@ void solveSudoku(vector<vector<char>> & board)
     memset(row, false, sizeof(row));
     memset(col, false, sizeof(col));
     memset(box, false, sizeof(box));
-
     valid = false;
     for(int i = 0; i < 9; ++i)
     {
