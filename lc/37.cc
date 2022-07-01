@@ -4,21 +4,21 @@ box[3][3][9],
 valid;
 vector<pair<int, int>> space;
 
-void dfs(vector<vector<char>> & board, int pos)
+void dfs(vector<vector<char>> & board, int space_i)
 {
-    if(pos == space.size())
+    if(space_i == space.size())
     {
         valid = true;
         return;
     }
-    auto [i, j] = space[pos];
+    auto [i, j] = space[space_i];
     for(int idx = 0; idx < 9; ++idx)
     {
         if(!row[i][idx] && !col[j][idx] && !box[i / 3][j / 3][idx] && !valid)
         {
             row[i][idx] = col[j][idx] = box[i / 3][j / 3][idx] = true;
             board[i][j] = '0' + idx + 1;
-            dfs(board, pos + 1);
+            dfs(board, space_i + 1);
             row[i][idx] = col[j][idx] = box[i / 3][j / 3][idx] = false;
         }
     }
