@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <string.h>
  
-char map[] = "___#_##_";
+char * map = "___#_##_";
  
 #define idx(i) (cell[i] != '_')
 int evolve(char * cell, char * buf, int n)
 {
-	int i, dif = 0;
-	for(i = 0; i < n; ++i) 
+	int dif = 0;
+	for(int i = 0; i < n; ++i) 
 	{/* use left, self, right as binary number bits for map index */
 		buf[i] = map[(idx(i - 1) << 2) + (idx(i) << 1) + idx(i + 1)];
 		dif += (buf[i] != cell[i]);
