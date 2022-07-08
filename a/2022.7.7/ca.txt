@@ -1,0 +1,2 @@
+https://rosettacode.org/wiki/One-dimensional_cellular_automata
+https://rosettacode.org/wiki/Elementary_cellular_automaton
