@@ -1,1 +1,0 @@
-https://stackoverflow.com/questions/32652213/why-does-the-c-programming-language-book-say-i-must-cast-malloc
