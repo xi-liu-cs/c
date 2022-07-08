@@ -1,2 +1,16 @@
 https://rosettacode.org/wiki/One-dimensional_cellular_automata
 https://rosettacode.org/wiki/Elementary_cellular_automaton
+
+one dimensional cellular automata
+assume an array of cells with an initial distribution of live and dead cells, and imaginary cells off the end of the array having fixed values
+cells in the next generation of the array are calculated based on the value of the cell and its left and right nearest neighbours in the current generation
+if, in the following table, a live cell is represented by 1 and a dead cell by 0 then to generate the value of the cell at a particular index in the array of cellular values you use the following table: 
+
+000 -> 0  #
+001 -> 0  #
+010 -> 0  # dies without enough neighbours
+011 -> 1  # needs one neighbour to survive 
+100 -> 0  # 
+101 -> 1  # two neighbours giving birth 
+110 -> 1  # needs one neighbour to survive 
+111 -> 0  # starved to death
