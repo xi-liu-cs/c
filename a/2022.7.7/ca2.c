@@ -1,6 +1,4 @@
 #include <stdio.h>
-
-typedef unsigned long long ull;
 #define n 64
 #define b(x) (1ull << (x))
 #define rot_left(a, i, n) (a << i | a >> (n - i))
@@ -10,6 +8,7 @@ typedef unsigned long long ull;
 	    putchar(st & b(i) ? '#' : '.');\
 	putchar('\n');\    
 }
+typedef unsigned long long ull;
  
 void evolve(ull state, int rule)
 {
