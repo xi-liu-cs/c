@@ -29,7 +29,7 @@ void evolve(ull state, int rule)
 	}while (st != state);
 }
  
-int main(int argc, char **argv)
+int main(int argc, char ** argv)
 {
 	evolve(b(n / 2), 90);
 	evolve(b(n / 4) | b(n - n / 4), 30);
