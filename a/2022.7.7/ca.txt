@@ -1,5 +1,4 @@
 https://rosettacode.org/wiki/One-dimensional_cellular_automata
-https://rosettacode.org/wiki/Elementary_cellular_automaton
 
 one dimensional cellular automata
 assume an array of cells with an initial distribution of live and dead cells, and imaginary cells off the end of the array having fixed values
