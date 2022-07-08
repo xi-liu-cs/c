@@ -1,0 +1,6 @@
+https://stackoverflow.com/questions/15114140/writing-binary-number-system-in-c-code
+
+c programming, ritchie, p230
+if an occurrence of a parameter in the replacement token sequence 
+is immediately preceded by #, string quotes (") are placed 
+around the corresponding parameter
