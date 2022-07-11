@@ -1,0 +1,125 @@
+https://www.nowcoder.com/test/30545046/summary
+
+https://www.nowcoder.com/test/question/done?tid=55367117&qid=1701666#summary
+
+网易互娱2021校园招聘在线笔试－游戏研发工程师（第一批）
+2/4
+[编程题]十字斩-研发
+时间限制：C/C++ 1秒，其他语言2秒
+
+空间限制：C/C++ 64M，其他语言128M
+
+游戏工程师小明购买了VR设备之后爱上了体感游戏，而最近他把他的业余时间花在了一款叫十字斩的游戏里。当你戴上VR眼镜启动游戏后，先选择一首音乐，然后会发现有一个N*N的方阵呈现在你的眼前，方阵的每个格子上都有一个数字。然后伴随着音乐节拍，你需要按照时机对方阵进行一次十字斩击（同时斩掉一行和一列，而且选好了行列后不能斩到选定行列之外的格子）。斩击完了之后，矩阵会收缩成一个（N-1）*（N-1）的方阵。
+
+特别的，若该次十字斩斩到的格子数字和是本次所有十字可能里最大的，则会获得一个Perfect，如果N次十字斩都是Perfect，则可以获得FullCombo的成就。但小明的心算能力不行，至今还未能获得FullCombo的成就。所幸初始数字方阵与音乐是一一对应的，所以小明可以通过预先计算十字斩的位置然后背下来，游玩的时候根据记忆去进行十字斩位置的选择即可。
+
+小明上了一天班已经不想写代码了，所以他拜托你来写一个程序为他计算出十字斩的方案。
+
+
+输入描述:
+每个输入数据包含一个测试点。
+
+第一行为一个正整数N，方阵的大小。0 < N <= 500
+
+接下来N行，每行有N个数字，第i行第j个数字表示方阵i行j列上的数字是多少，对于每个数字，保证是非负整数且范围在[0, 65535]内。
+
+
+输出描述:
+输出N行，每行两个整数n，m，第i行的n，m表示第i次斩击时，斩击第n行和第m列的数字和是最大的。注意如果此时有多种方案，输出n最小的（更小的数字更方便小明记忆），如果还有多种方案，输出m最小的。
+
+而且n、m的坐标是对于当前的（N + 1 – i）大小方阵而言，并不是对于一开始N*N大小的方阵而言，更加详细的说明参见下方样例说明。
+
+
+输入例子1:
+3
+1 0 0
+0 10 10
+0 10 10
+
+输出例子1:
+2 2
+1 2
+1 1
+
+例子说明1:
+
+
+对于第一轮，我们斩击2行2列、2行3列、3行2列、3行3列的数字和都是最大的为30（行列重复的那个格子的数字并不会被计算两次），但因为希望n和m都最小，所以我们的斩击选择为2 2
+
+斩击之后剩余的上下左右四个矩阵收缩为新的矩阵
+
+1 0
+
+0 10
+
+此时最优的斩击选择就是1 2 (注意是新方阵下的坐标，而非原方阵的第1行3列)
+
+然后剩下一个1*1的方阵，只有唯一的斩击选择1 1了
+
+
+#include<iostream>
+#include<bits/stdc++.h>
+#include<algorithm>
+using namespace std;
+/* int getsum(int x,int y,deque<deque<int>> box){
+    int x_size = box[x].size();
+    int x_sum=0,y_sum=0;
+    for(int k = 0;k<x_size;k++){
+        x_sum  += box[x][k];
+        y_sum  += box[k][y];
+    }
+    return x_sum+y_sum - box[x][y];
+} */
+ 
+int main(){
+    int n; cin>>n;
+    //数据存入
+    deque<deque<int>> box(n,deque<int>(n,0));//初始化矩阵
+    for(int i=0;i<n;i++){
+       for(int j=0;j<n;j++){
+           int temp;
+           cin>>temp;
+           box[i][j] = temp;
+       }
+    }
+    //处理数据
+    while(n>0){
+        int x=0,y=0;
+        //求第i行 第j列的值
+        int max_sum = 0;
+        //数组行和列的值 应该在前面就进行得到
+        int x_sum=0,y_sum = 0;
+        vector<int> p_x(n,0);
+        vector<int> p_y(n,0);
+        for(int k = 0;k<n;k++){
+           for(int p=0;p<n;p++){
+               p_x[k] += box[k][p];
+               p_y[p] += box[k][p];
+           }
+        }
+        for(int l=0;l<n;l++){
+            for(int h=0;h<n;h++){
+                int temp_max = p_x[l]+ p_y[h]- box[l][h];
+                if(temp_max>max_sum){
+                    //第一大于的数据
+                    x=l;
+                    y=h;
+                    max_sum = temp_max;
+                };
+            }
+        }
+        //需要删除 x 和y 行的数据
+        cout<<(x+1)<<" "<<(y+1)<<endl;
+        n--;
+        //对于deque进行删除
+        //删除一行
+        box.erase(box.begin()+x);
+        //删除列
+        int b_size = box.size();
+        for(int i=0;i<b_size;i++){
+            box[i].erase(box[i].begin()+y);
+        }
+    }
+ 
+    return 0;
+}
