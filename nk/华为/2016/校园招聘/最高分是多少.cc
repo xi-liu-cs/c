@@ -16,7 +16,7 @@ int main()
             cin >> c >> a >> b;
             if(c == 'Q')
             {
-                if(a > b) swap(a,b);
+                if(a > b) swap(a, b);
                 cout << *max_element(stu.begin() + a - 1, stu.begin() + b) << endl;                   
             }   
             if(c == 'U')
