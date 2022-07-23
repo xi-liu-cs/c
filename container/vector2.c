@@ -30,5 +30,5 @@ int main()
     vector_init(&v);
     int data = 0;
     vector_push(&v, &data);
-    printf("%d\n", *(int *)v.a[0]);
+    printf("%d\n", *(int *)*v.a);
 }
