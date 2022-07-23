@@ -22,7 +22,7 @@ void dfs(int pos, int rest)
         cur.pop_back();
 }
 
-vector<vector<int>> combinationSum2(vector<int>& candidates, int target) 
+vector<vector<int>> combinationSum2(vector<int> & candidates, int target) 
 {
     sort(candidates.begin(), candidates.end());
     for(int c: candidates)
