@@ -1,7 +1,6 @@
 /* put numbers in nums to a hash map, enumerate positive number from 1
 check if it is in hash map 
 constant space, use nums as hash map */
-
 int firstMissingPositive(int * nums, int n)
 {
     for(int i = 0; i < n; ++i)
