@@ -25,7 +25,7 @@ void dfs(int pos, int rest)
 vector<vector<int>> combinationSum2(vector<int> & candidates, int target) 
 {
     sort(candidates.begin(), candidates.end());
-    for(int c: candidates)
+    for(int c : candidates)
     {
         if(freq.empty() || c != freq.back().first)
             freq.push_back({c, 1});
