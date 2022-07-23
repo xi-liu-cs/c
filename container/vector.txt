@@ -1,3 +1,4 @@
 https://www.geeksforgeeks.org/how-to-implement-our-own-vector-class-in-c/
-
 https://aticleworld.com/implement-vector-in-c/
+https://constantsmatter.com/posts/generic-ds-c/
+https://www.geeksforgeeks.org/and-operators-in-c/
