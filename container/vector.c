@@ -6,8 +6,7 @@
   typedef struct\
   {\
     type * a;\
-    size_t cap;\
-    size_t cur;\
+    size_t cap, cur;\
   }type##_vector; 
 
 #define vector_init(type)\
